@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class GazeTimer : MonoBehaviour
 {
-    public UnityEvent onGazeComplete;  // This is the event you'll see in the Inspector
+    public UnityEvent onGazeComplete = new UnityEvent(); // ? Add this default initialization
 
     private float gazeTime = 2f;
     private float timer = 0f;
@@ -18,12 +18,14 @@ public class GazeTimer : MonoBehaviour
     {
         isGazing = true;
         timer = 0f;
+        Debug.Log("Gaze started");
     }
 
     public void StopGaze()
     {
         isGazing = false;
         timer = 0f;
+        Debug.Log("Gaze stopped");
     }
 
     void Update()
@@ -34,7 +36,8 @@ public class GazeTimer : MonoBehaviour
             if (timer >= gazeTime)
             {
                 isGazing = false;
-                onGazeComplete.Invoke();  // Trigger event after 2 seconds
+                Debug.Log("Gaze complete!");
+                onGazeComplete.Invoke();  // ? Now this won't throw error
             }
         }
     }
