@@ -1,3 +1,8 @@
+// GyroCamera.cs
+// This script enables gyroscope-based camera control for Android devices.
+// It calibrates the camera based on initial device orientation and smoothly
+// rotates the camera based on the user's physical device movement.
+// Only works on Android (disabled in the Unity Editor).
 //This script is attached to the Head GameObject
 
 using System.Collections;
